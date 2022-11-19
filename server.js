@@ -6,13 +6,18 @@ import profileRoute from './routes/api/profile.js';
 import postsRoute from './routes/api/posts.js';
 
 const app = express();
+
 //connect Database
 connectDB();
+
+//Init middleware
+app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => {
 	res.send('server running');
 });
 
+//Define Routes
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/profile', profileRoute);
