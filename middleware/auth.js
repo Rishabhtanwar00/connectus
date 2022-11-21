@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 
 export default function auth(req, res, next) {
-	const token = req.header('x-auth-header');
+	const token = req.header('x-auth-token');
 
 	if (!token) {
 		return res
