@@ -1,8 +1,8 @@
 import express from 'express';
 import connectDB from './config/db.js';
+import profileRoute from './routes/api/profile.js';
 import userRoute from './routes/api/users.js';
 import authRoute from './routes/api/auth.js';
-import profileRoute from './routes/api/profile.js';
 import postsRoute from './routes/api/posts.js';
 
 const app = express();
