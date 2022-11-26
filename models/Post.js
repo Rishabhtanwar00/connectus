@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const postRoute = mongoose.schema({
+const postRoute = mongoose.Schema({
 	user: {
 		type: mongoose.Types.ObjectId,
 		ref: 'users',
