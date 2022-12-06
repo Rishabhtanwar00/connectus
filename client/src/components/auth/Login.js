@@ -18,7 +18,7 @@ const Login = () => {
 	};
 
 	return (
-		<section className='container'>
+		<section className='container1'>
 			<h1 className='large text-primary'>Sign In</h1>
 			<p className='lead'>
 				<i className='fas fa-user'></i> Log Into Your Account
