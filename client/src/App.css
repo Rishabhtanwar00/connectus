@@ -342,7 +342,7 @@ button {
 .landing {
 	position: relative;
 	background: url('./img/showcase.jpg') no-repeat center center/cover;
-	height: 100vh;
+	height: 90.6vh;
 	margin-top: -5.2rem;
 }
 
@@ -582,5 +582,9 @@ button {
 	.post a,
 	.post button {
 		padding: 0.3rem 0.4rem;
+	}
+	.landing {
+		height: 84.2vh;
+		margin-top: -4.6rem;
 	}
 }

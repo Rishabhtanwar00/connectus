@@ -8,6 +8,7 @@ import Alert from './components/layout/Alert.js';
 import Dashboard from './components/dashboard/Dashboard.js';
 import PrivateRoute from './components/routing/PrivateRoute.js';
 import setAuthToken from './utils/setAuthToken.js';
+import CreateProfile from './components/profile-forms/CreateProfile.js';
 import { loadUser } from './actions/auth.js';
 import './App.css';
 
@@ -40,6 +41,15 @@ const App = () => {
 						element={
 							<PrivateRoute>
 								<Dashboard />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						exact
+						path='/create-profile'
+						element={
+							<PrivateRoute>
+								<CreateProfile />
 							</PrivateRoute>
 						}
 					/>
