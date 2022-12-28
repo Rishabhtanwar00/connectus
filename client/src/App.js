@@ -9,6 +9,9 @@ import Dashboard from './components/dashboard/Dashboard.js';
 import PrivateRoute from './components/routing/PrivateRoute.js';
 import setAuthToken from './utils/setAuthToken.js';
 import CreateProfile from './components/profile-forms/CreateProfile.js';
+import EditProfile from './components/profile-forms/EditProfile.js';
+import AddExperience from './components/profile-forms/AddExperience.js';
+import AddEducation from './components/profile-forms/AddEducation.js';
 import { loadUser } from './actions/auth.js';
 import './App.css';
 
@@ -27,10 +30,8 @@ const App = () => {
 	return (
 		<Provider store={Store}>
 			<Router>
+				<Alert />
 				<Navbar />
-				<div className='container'>
-					<Alert />
-				</div>
 				<Routes>
 					<Route exact path='/' element={<Landing />} />
 					<Route exact path='/register' element={<Register />} />
@@ -50,6 +51,33 @@ const App = () => {
 						element={
 							<PrivateRoute>
 								<CreateProfile />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						exact
+						path='/edit-profile'
+						element={
+							<PrivateRoute>
+								<EditProfile />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						exact
+						path='/add-experience'
+						element={
+							<PrivateRoute>
+								<AddExperience />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						exact
+						path='/add-education'
+						element={
+							<PrivateRoute>
+								<AddEducation />
 							</PrivateRoute>
 						}
 					/>

@@ -25,7 +25,7 @@ const Login = ({ login, isAuthenticated }) => {
 	}
 
 	return (
-		<section className='container1'>
+		<section className='container'>
 			<h1 className='large text-primary'>Sign In</h1>
 			<p className='lead'>
 				<i className='fas fa-user'></i> Log Into Your Account
