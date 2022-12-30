@@ -12,6 +12,7 @@ import CreateProfile from './components/profile-forms/CreateProfile.js';
 import EditProfile from './components/profile-forms/EditProfile.js';
 import AddExperience from './components/profile-forms/AddExperience.js';
 import AddEducation from './components/profile-forms/AddEducation.js';
+import Profiles from './components/profiles/Profiles.js';
 import { loadUser } from './actions/auth.js';
 import './App.css';
 
@@ -36,6 +37,7 @@ const App = () => {
 					<Route exact path='/' element={<Landing />} />
 					<Route exact path='/register' element={<Register />} />
 					<Route exact path='/login' element={<Login />} />
+					<Route exact path='/profiles' element={<Profiles />} />
 					<Route
 						exact
 						path='/dashboard'
