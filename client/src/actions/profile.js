@@ -76,7 +76,9 @@ export const getGithubRepos = (userName) => async (dispatch) => {
 };
 
 //create or update profile
-export const createProfile = (formData, edit = false) => async (dispatch) => {
+export const createProfile = (formData, navigate, edit = false) => async (
+	dispatch
+) => {
 	try {
 		const config = {
 			headers: {
@@ -91,9 +93,8 @@ export const createProfile = (formData, edit = false) => async (dispatch) => {
 		});
 
 		dispatch(setAlert(edit ? 'profile updated' : 'profile created', 'success'));
-		// if (!edit) {
-		// 	history('/dashboard');
-		// }
+
+		navigate('/dashboard');
 	} catch (err) {
 		const errors = err.response.data.errors;
 		if (errors) {
@@ -109,7 +110,7 @@ export const createProfile = (formData, edit = false) => async (dispatch) => {
 };
 
 //add experience
-export const addExperience = (formData) => async (dispatch) => {
+export const addExperience = (formData, navigate) => async (dispatch) => {
 	try {
 		const config = {
 			headers: {
@@ -124,6 +125,7 @@ export const addExperience = (formData) => async (dispatch) => {
 		});
 
 		dispatch(setAlert('Experience added successfully', 'success'));
+		navigate('/dashboard');
 	} catch (err) {
 		const errors = err.response.data.errors;
 		if (errors) {
@@ -138,7 +140,7 @@ export const addExperience = (formData) => async (dispatch) => {
 };
 
 //add education
-export const addEducation = (formData) => async (dispatch) => {
+export const addEducation = (formData, navigate) => async (dispatch) => {
 	try {
 		const config = {
 			headers: {
@@ -153,6 +155,7 @@ export const addEducation = (formData) => async (dispatch) => {
 		});
 
 		dispatch(setAlert('Education added successfully', 'success'));
+		navigate('/dashboard');
 	} catch (err) {
 		const errors = err.response.data.errors;
 		if (errors) {
