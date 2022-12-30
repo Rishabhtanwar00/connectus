@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { addEducation } from '../../actions/profile.js';
+import { connect } from 'react-redux';
 
 const AddEducation = ({ addEducation }) => {
 	const navigate = useNavigate();
@@ -33,8 +33,7 @@ const AddEducation = ({ addEducation }) => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		addEducation(formData);
-		navigate('/dashboard');
+		addEducation(formData, navigate);
 	};
 
 	return (
