@@ -11,7 +11,7 @@ const router = express.Router();
 // @access  private
 router.post(
 	'/',
-	[auth, [check('text', 'Text is required').not().isEmpty()]],
+	[auth, [check('text', 'Empty post can not be added.').not().isEmpty()]],
 	async (req, res) => {
 		const errors = validationResult(req, res);
 		if (!errors.isEmpty()) {
@@ -165,7 +165,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
 
 router.post(
 	'/comment/:id',
-	[auth, [check('text', 'Text is Required').not().isEmpty()]],
+	[auth, [check('text', 'Empty comment can not be added').not().isEmpty()]],
 	async (req, res) => {
 		const errors = validationResult(req);
 
