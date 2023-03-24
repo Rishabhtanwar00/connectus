@@ -16,6 +16,7 @@ import Profiles from './components/profiles/Profiles.js';
 import Profile from './components/profile/Profile.js';
 import Posts from './components/posts/Posts.js';
 import Post from './components/post/Post.js';
+import PageNotFound from './components/layout/PageNotFound.js';
 import { loadUser } from './actions/auth.js';
 import './App.css';
 
@@ -105,6 +106,7 @@ const App = () => {
 							</PrivateRoute>
 						}
 					/>
+					<Route path='*' element={<PageNotFound />} />
 				</Routes>
 			</Router>
 		</Provider>

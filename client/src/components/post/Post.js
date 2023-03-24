@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Spinner from '../layout/Spinner.js';
 import PostItem from '../posts/PostItem.js';
 import PropTypes from 'prop-types';
