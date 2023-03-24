@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner.js';
 import { connect } from 'react-redux';
