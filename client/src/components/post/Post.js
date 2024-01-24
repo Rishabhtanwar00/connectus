@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Spinner from '../layout/Spinner.js';
 import PostItem from '../posts/PostItem.js';
 import PropTypes from 'prop-types';
 import CommentForm from './CommentForm.js';
@@ -15,9 +14,7 @@ const Post = ({ getPost, post: { post, loading } }) => {
 	}, []);
 	return (
 		<div className='container'>
-			{loading || post === null ? (
-				<Spinner />
-			) : (
+			{!loading || post !== null && (
 				<Fragment>
 					<PostItem post={post} showActions={false} />
 					<CommentForm postId={post._id} />

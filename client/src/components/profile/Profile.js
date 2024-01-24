@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Spinner from '../layout/Spinner.js';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../actions/profile.js';
 import ProfileTop from './ProfileTop.js';
@@ -19,9 +18,7 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
 
 	return (
 		<div className='container'>
-			{profile === null || loading ? (
-				<Spinner />
-			) : (
+			{profile === null || !loading && (
 				<Fragment>
 					<Link to='/profiles' className='btn btn-light'>
 						Back To Profiles

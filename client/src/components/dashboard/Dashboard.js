@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner.js';
 import DashboardActions from './DashboardActions.js';
 import Experience from './Experience.js';
 import Education from './Education.js';
@@ -20,9 +19,7 @@ const Dashboard = ({
 
 	return (
 		<div className='container'>
-			{loading && profile === null ? (
-				<Spinner />
-			) : (
+			{!loading && profile !== null && (
 				<Fragment>
 					<h1 className='large text-primary'>Dashboard</h1>
 					<p className='lead'>

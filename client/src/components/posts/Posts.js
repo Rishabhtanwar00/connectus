@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Spinner from '../layout/Spinner.js';
 import { connect } from 'react-redux';
 import PostItem from './PostItem.js';
 import PostForm from './PostForm.js';
@@ -12,9 +11,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
 	}, []);
 	return (
 		<div className='container'>
-			{loading ? (
-				<Spinner />
-			) : (
+			{!loading && (
 				<Fragment>
 					<h1 className='large text-primary'>Posts</h1>
 					<p className='lead'>
