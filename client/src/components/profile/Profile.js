@@ -18,7 +18,7 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
 
 	return (
 		<div className='container'>
-			{profile === null || !loading && (
+			{(profile === null || !loading) && (
 				<Fragment>
 					<Link to='/profiles' className='btn btn-light'>
 						Back To Profiles

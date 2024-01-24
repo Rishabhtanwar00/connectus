@@ -14,7 +14,7 @@ const Post = ({ getPost, post: { post, loading } }) => {
 	}, []);
 	return (
 		<div className='container'>
-			{!loading || post !== null && (
+			{!loading && post !== null && (
 				<Fragment>
 					<PostItem post={post} showActions={false} />
 					<CommentForm postId={post._id} />
