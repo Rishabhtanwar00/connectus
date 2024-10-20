@@ -4,19 +4,18 @@ import profileRoute from './routes/api/profile.js';
 import userRoute from './routes/api/users.js';
 import authRoute from './routes/api/auth.js';
 import postsRoute from './routes/api/posts.js';
-import path from 'path';
+import cors from 'cors';
 
 const app = express();
 
 //connect Database
 connectDB();
 
-const cors = require('cors');
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
+const corsOptions = {
+	origin: 'http://localhost:3000',
+	credentials: true, //access-control-allow-credentials:true
+	optionSuccessStatus: 200,
+};
 app.use(cors(corsOptions));
 
 //Init middleware
