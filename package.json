@@ -8,8 +8,7 @@
 		"start": "node server",
 		"server": "nodemon server",
 		"client": " npm start --prefix client",
-		"dev": "concurrently \"npm run server\" \"npm run client\"",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"author": "Rishabh Tanwar",
 	"license": "MIT",
@@ -21,6 +20,7 @@
 		"gravatar": "^1.8.2",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^6.7.2",
+		"react-scripts": "^5.0.1",
 		"request": "^2.88.2"
 	},
 	"devDependencies": {

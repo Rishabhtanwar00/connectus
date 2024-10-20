@@ -7,6 +7,7 @@ const Alert = ({ alerts }) => {
 		alerts != null &&
 		alerts.length > 0 && (
 			<div className='altContainer'>
+				
 				<div
 					key={alerts[0].id}
 					className={`alert alert-${alerts[0].alertType}`}
