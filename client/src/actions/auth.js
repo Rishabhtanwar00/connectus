@@ -12,6 +12,8 @@ import {
 } from './types.js';
 import setAuthToken from '../utils/setAuthToken.js';
 
+const BASE_URL = process.env.BASE_URL;
+
 //load user
 export const loadUser = () => async (dispatch) => {
 	if (localStorage.token) {
@@ -19,7 +21,7 @@ export const loadUser = () => async (dispatch) => {
 	}
 
 	try {
-		const res = await axios.get('api/auth');
+		const res = await axios.get(`${BASE_URL}/api/auth`);
 
 		dispatch({
 			type: USER_LOADED,
@@ -33,45 +35,56 @@ export const loadUser = () => async (dispatch) => {
 };
 
 //register user
-export const register = ({ name, email, password }) => async (dispatch) => {
-	const config = {
-		headers: {
-			'content-type': 'application/json',
-		},
-	};
+export const register =
+	({ name, email, password }) =>
+	async (dispatch) => {
+		const config = {
+			headers: {
+				'content-type': 'application/json',
+			},
+		};
 
-	const body = JSON.stringify({ name, email, password });
-	try {
-		const res = await axios.post('api/users', body, config);
+		const body = JSON.stringify({ name, email, password });
+		try {
+			const res = await axios.post(`${BASE_URL}/api/users`, body, config);
 
-		dispatch({
-			type: REGISTER_SUCCESS,
-			payload: res.data,
-		});
+			dispatch({
+				type: REGISTER_SUCCESS,
+				payload: res.data,
+			});
 
-		dispatch(loadUser());
-	} catch (err) {
-		const errors = err.response.data.errors;
-		if (errors) {
-			errors.forEach((error) => dispatch(setAlert(error.msg, 'danger', 3000)));
+			dispatch(loadUser());
+		} catch (err) {
+			const errors = err.response.data.errors;
+			if (errors) {
+				errors.forEach((error) =>
+					dispatch(setAlert(error.msg, 'danger', 3000))
+				);
+			}
+			dispatch({
+				type: REGISTER_FAIL,
+			});
 		}
-		dispatch({
-			type: REGISTER_FAIL,
-		});
-	}
-};
+	};
 
 //login user
 export const login = (email, password) => async (dispatch) => {
 	const config = {
 		headers: {
 			'content-type': 'application/json',
+			'Access-Control-Allow-Origin': 'http://localhost:3000',
+			'Access-Control-Allow-Credentials': 'true',
 		},
 	};
 
 	const body = JSON.stringify({ email, password });
+	const url = `${BASE_URL}/api/auth`;
 	try {
-		const res = await axios.post('api/auth', body, config);
+		const res = await axios.post(
+			'https://connectus-2spy.onrender.com/api/auth',
+			body,
+			config
+		);
 
 		dispatch({
 			type: LOGIN_SUCCESS,
