@@ -9,10 +9,9 @@ import {
 	LOGIN_FAIL,
 	LOGOUT,
 	CLEAR_PROFILE,
+	BASE_URL,
 } from './types.js';
 import setAuthToken from '../utils/setAuthToken.js';
-
-const BASE_URL = process.env.BASE_URL;
 
 //load user
 export const loadUser = () => async (dispatch) => {
@@ -72,19 +71,12 @@ export const login = (email, password) => async (dispatch) => {
 	const config = {
 		headers: {
 			'content-type': 'application/json',
-			'Access-Control-Allow-Origin': 'http://localhost:3000',
-			'Access-Control-Allow-Credentials': 'true',
 		},
 	};
 
 	const body = JSON.stringify({ email, password });
-	const url = `${BASE_URL}/api/auth`;
 	try {
-		const res = await axios.post(
-			'https://connectus-2spy.onrender.com/api/auth',
-			body,
-			config
-		);
+		const res = await axios.post(`${BASE_URL}/api/auth`, body, config);
 
 		dispatch({
 			type: LOGIN_SUCCESS,

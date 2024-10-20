@@ -273,7 +273,8 @@ img {
 .form .form-text {
 	display: block;
 	margin-top: 0.3rem;
-	color: #888;
+	color: #000;
+	letter-spacing: 0.3px;
 }
 
 .form input[type='text'],
@@ -284,9 +285,13 @@ img {
 .form textarea {
 	display: block;
 	width: 100%;
-	padding: 0.4rem;
-	font-size: 1.2rem;
-	border: 1px solid #ccc;
+	padding: 10px 10px;
+	font-size: 14px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 0.5px;
+	font-weight: 500;
 }
 
 .form input[type='submit'],
@@ -386,11 +391,21 @@ button {
 	grid-template-columns: 2fr 4fr 2fr;
 	align-items: center;
 	grid-gap: 2rem;
-	padding: 1rem;
+	padding: 20px 30px;
 	line-height: 1.8;
 	margin-bottom: 1rem;
 }
 
+.profile ul i{
+	margin-right: 5px;
+}
+.profile img{
+	height: 150px;
+	width: 150px;
+}
+.profile > div .btn{
+	margin-top: 10px;
+}
 /* Profile Page */
 .profile-grid {
 	display: grid;
@@ -436,6 +451,9 @@ button {
 	text-align: center;
 }
 
+.profile-about .skills i{
+	margin-right: 5px;
+}
 .profile-exp {
 	grid-area: exp;
 }
@@ -520,11 +538,16 @@ button {
 }
 
 ::placeholder,
-select,
 option {
 	opacity: 1;
 	font-size: 12px;
-	font-family: 'Roboto Mono';
+	font-family: 'Montserrat', sans-serif;
+	color: #00000099;
+	font-weight: 500;
+}
+option{
+	color: #000;
+	font-size: 14px;
 }
 .form-group {
 	font-size: 12px;
