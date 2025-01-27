@@ -5,17 +5,15 @@
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"start": "node server",
-		"server": "nodemon server",
-		"client": " npm start --prefix client",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"start": "node server.js",
+		"server": "nodemon server.js"
 	},
 	"author": "Rishabh Tanwar",
 	"license": "MIT",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
-		"config": "^3.3.8",
 		"cors": "^2.8.5",
+		"dotenv": "^16.4.7",
 		"express": "^4.18.2",
 		"express-validator": "^6.14.2",
 		"gravatar": "^1.8.2",

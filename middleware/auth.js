@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import config from 'config';
 
 export default function auth(req, res, next) {
 	const token = req.header('x-auth-token');
@@ -11,7 +10,7 @@ export default function auth(req, res, next) {
 	}
 
 	try {
-		const decoded = jwt.verify(token, config.get('jwtToken'));
+		const decoded = jwt.verify(token, process.env.JWTTOKEN);
 		req.user = decoded.user;
 		next();
 	} catch (err) {

@@ -4,7 +4,6 @@ import { check, validationResult } from 'express-validator';
 import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import config from 'config';
 import User from '../../models/User.js';
 
 // @route   POST api/users
@@ -63,7 +62,7 @@ router.post(
 
 			jwt.sign(
 				payload,
-				config.get('jwtToken'),
+				process.env.JWTTOKEN,
 				{ expiresIn: 360000 },
 				(err, token) => {
 					if (err) throw err;

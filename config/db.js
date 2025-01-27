@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
-import config from 'config';
-const db = config.get('mongoURI');
 
 const connectDB = async () => {
 	try {
-		await mongoose.connect(db);
+		mongoose.set('strictQuery', false);
+		await mongoose.connect(process.env.MONGOURI);
 		console.log('mongodb connected');
 	} catch (err) {
 		console.error(err.message);
